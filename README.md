@@ -1,7 +1,7 @@
 # OpenSauce  API
 
 ## Docs:
-The documentation for the API can be found [here](https://opensauce.gitbook.io/opensauce/), please note that everything is not documented as this is project is now abandoned.
+The documentation for the API can be found [here](https://docs.opensauce.uk), please note that everything is not documented or completed.
 
 # Commands
 Start app with nodemon
@@ -21,10 +21,10 @@ Lint:
 npm run lint
 ```
 # To do
-You can find our trello [here](https://trello.com/c/TzSbpk0f/21-api) may require you to be logged in and invited to our trello.
+You can find our trello [here](https://trello.com/c/TzSbpk0f/21-api) which may require you to be logged in and invited to our trello.
 
 # Build Status
 [![Build Status](https://drone.sunildev.uk/api/badges/opensauce-uk/auth-server/status.svg)](https://drone.sunildev.uk/opensauce-uk/auth-server)
 
 # Note
-The backend will require the Postal Server to run some functions e.g signing up, the repo can be found [here](https://github.com/opensauce-uk/postal-discord-webhook)
+You will need a mongoDB running as well as SMTP credentials. 

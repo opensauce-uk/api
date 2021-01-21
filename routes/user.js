@@ -146,21 +146,23 @@ router.get('/info', auth, async (req, res) => {
 });
 
 router.get('/get/:username', async (req, res) => {
-	if (!req.params.username) return res.status(404).send({ error: "Username wasn't provided" })
-	const user = await User.findOne({ username: req.params.username } );
-	if (!user) return res.status(400).send( { error: 'Could not find username in database!' })
-	return res.status(200).send(
+	if (!req.params.username) return res.status(404).send({ error: "Username wasn't provided" });
+	const user = await User.findOne({ username: req.params.username });
+	if (!user) return res.status(400).send({ error: 'Could not find username in database!' });
+	return res.json(
 		{
 			id: user._id,
 			username: user.username,
+			name: user.name,
+			created_at: user.created_at,
 			email: user.email,
 			avatar: user.avatar,
 			biography: user.biography,
 			favorites: user.favorites,
 			role: user.role
 		}
-	)
-})
+	);
+});
 
 router.put('/edit', auth, async (req, res) => {
 	const { error } = userChangeValidation(req.body);
@@ -168,9 +170,10 @@ router.put('/edit', auth, async (req, res) => {
 	let biography;
 	let favorites;
 	let avatar;
+	console.log(req.body.biography, req.body.avatar);
 	if (req.body.biography) biography = await User.findByIdAndUpdate(req.user._id, { biography: req.body.biography });
 	if (req.body.favorites) favorites = await User.findByIdAndUpdate(req.user._id, { favorites: req.body.favorites });
-	if (req.body.avatar) avatar = await User.updateOne({ id: req.user._id }, { avatar: req.body.avatar });
+	if (req.body.avatar) avatar = await User.findByIdAndUpdate(req.user._id, { avatar: req.body.avatar });
 
 
 	return res.send({

@@ -27,6 +27,11 @@ mongoose.connect(
 // Hide express is running
 app.use((req, res, next) => {
 	res.setHeader('X-Powered-By', 'OpenSauce/API');
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, authorization,content-type');
+	res.setHeader('Access-Control-Allow-Credentials', true);
+	res.setHeader('Access-Control-Allow-Methods', '*');
 	next();
 });
 
