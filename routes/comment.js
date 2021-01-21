@@ -52,7 +52,7 @@ router.delete('/delete', auth, async (req, res) => {
 
 		 // Check if user can delete and delete comment
 		const checkPermission = await util.checkPermission(req.user, 'REMOVE_COMMENT');
-		if (comment.user == req.user.username || checkPermission) comment.deleteOne({ id: req.body.commentid });
+		if (comment.user === req.user.username || checkPermission) comment.deleteOne({ id: req.body.commentid });
 		if (comment.user !== req.user.username && !checkPermission) return res.status(403).send({ error: 'This is not your comment hence you are unable to delete it' });
 
 		// Return message
