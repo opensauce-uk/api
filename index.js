@@ -11,6 +11,7 @@ const commentRoute = require('./routes/comment');
 const searchRoute = require('./routes/query');
 const permissionsRoute = require('./routes/permissions');
 const ingredientRoute = require('./routes/ingredient');
+const contactRoute = require('./routes/contact');
 
 // Imports from .env
 dotenv.config();
@@ -41,12 +42,13 @@ app.use(express.json());
 
 
 // Route Middlewares:
-app.use('/api/user', userRoute);
-app.use('/api/posts', postRoute);
-app.use('/api/comment', commentRoute);
-app.use('/api/search', searchRoute);
-app.use('/api/admin/users/', permissionsRoute);
-app.use('/api/ingredient', ingredientRoute);
+app.use('/user', userRoute);
+app.use('/posts', postRoute);
+app.use('/comment', commentRoute);
+app.use('/search', searchRoute);
+app.use('/admin/users/', permissionsRoute);
+app.use('/ingredient', ingredientRoute);
+app.use('/contact', contactRoute);
 
 // sets port to port defined in env and outputs success message to console
 app.listen(port, () => util.log(`Server Online on port ${port}`));

@@ -27,4 +27,4 @@ You can find our trello [here](https://trello.com/c/TzSbpk0f/21-api) which may r
 [![Build Status](https://drone.sunildev.uk/api/badges/opensauce-uk/auth-server/status.svg)](https://drone.sunildev.uk/opensauce-uk/auth-server)
 
 # Note
-You will need a mongoDB running as well as SMTP credentials. 
+You will need a mongoDB server running as well as SMTP credentials. 

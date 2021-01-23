@@ -98,7 +98,7 @@
 		"eol-last": "warn",
 		"func-names": "warn",
 		"func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
-		"id-length": ["warn", { "exceptions": ["i", "j", "a", "b", "_"] }],
+		"id-length": ["warn", { "exceptions": ["i", "j", "a", "b", "_", "x"] }],
 		"indent": ["warn", "tab", { "SwitchCase": 1 }],
 		"key-spacing": "warn",
 		"keyword-spacing": ["warn", {
@@ -112,7 +112,7 @@
 		}],
 		"lines-around-comment": "off",
 		"max-depth": "warn",
-		"max-len": ["warn", 200, 2],
+		"max-len": ["warn", 300, 2],
 		"max-nested-callbacks": ["warn", { "max": 4 }],
 		"max-statements-per-line": ["warn", { "max": 2 }],
 		"new-cap": "warn",
