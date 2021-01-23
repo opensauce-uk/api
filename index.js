@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const util = require('./lib/util');
+const bodyParser = require('body-parser');
 
 // Import routes
 const userRoute = require('./routes/user');
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Route Middlewares:
