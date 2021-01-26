@@ -148,7 +148,7 @@ router.get('/info', auth, async (req, res) => {
 router.get('/get/:username', async (req, res) => {
 	if (!req.params.username) return res.status(404).send({ error: "Username wasn't provided" });
 	const user = await User.findOne({ username: req.params.username });
-	if (!user) return res.status(400).send({ error: 'Could not find username in database!' });
+	if (!user) return res.status(404).send({ error: 'Could not find username in database!' });
 	return res.json(
 		{
 			id: user._id,
