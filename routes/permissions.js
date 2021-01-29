@@ -119,10 +119,11 @@ router.post('/:username/permissions/reset', auth, async (req, res) => {
 
 // Get Permissions for User
 router.get('/:username/permissions', auth, async (req, res) => {
+	if (!req.params.username) return res.status(400).send({ error: "Please send a user!"})
 	if (!util.checkPermission(req.user, 'GET_PERMISSIONS')) return res.status(403).send({ error: 'Please contact an admin to request the needed permission to perform this operation', permission: 'GET_PERMISSIONS' });
 	const user = await User.findOne({ username: req.params.username });
 	// check if the user is available
-	if (!user.username) return res.status(404).send({ error: 'Could not find user!' });
+	if (!user) return res.status(404).send({ error: 'Could not find user!' });
 	const payload = {
 		user: {
 			name: user.name,
