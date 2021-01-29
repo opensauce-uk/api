@@ -51,7 +51,7 @@ router.put('/:username/permissions/add', auth, async (req, res) => {
 router.delete('/:username/permissions/remove', auth, async (req, res) => {
 	// Check if User can change permissions
 	if (!util.checkPermission(req.user, 'REMOVE_PERMISSIONS')) return res.status(403).send({ error: 'Please contact an admin to request the needed permission to perform this operation', permission: 'REMOVE_PERMISSIONS' });
-	const user = await User.findOne({ username: req.body.username });
+	const user = await User.findOne({ username: req.params.username });
 	// check if the user is available
 	if (!user) return res.status(404).send({ error: 'Could not find user!' });
 	// grab permissions

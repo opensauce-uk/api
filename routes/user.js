@@ -78,6 +78,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
 	// Validation
 	const { error } = loginValidation(req.body);
+	console.log(error)
 	if (error) { return res.status(400).send(error); }
 
 	// Checking if username is already in the database
