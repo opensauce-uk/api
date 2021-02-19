@@ -1,6 +1,6 @@
 {
   "name": "auth-server",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Server that will handle backend of the website",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opensauce-uk/auth-server.git"
+    "url": "git+https://github.com/opensauce-uk/api.git"
   },
   "author": "Ben Newman",
   "contributors": [
@@ -19,9 +19,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/opensauce-uk/auth-server/issues"
+    "url": "https://github.com/opensauce-uk/api/issues"
   },
-  "homepage": "https://github.com/opensauce-uk/auth-server#readme",
+  "homepage": "https://github.com/opensauce-uk/api#readme",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
     "@jsmonday/imgproxy": "^0.1.0",

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const nodemailer = require("nodemailer");
 
 router.post("/", async (req, res) => {
-  console.log(req.body, req.params, req.query);
+//  console.log(req.body, req.params, req.query);
   if (
     !req.body.first ||
     !req.body.last ||
