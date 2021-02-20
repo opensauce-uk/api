@@ -177,8 +177,7 @@ router.put("/edit", auth, async (req, res) => {
   let favorites;
   let avatar;
 
-  return res.status(400).send({ error: "No link given" });
-  biography = await User.findByIdAndUpdate(req.user._id, {
+    biography = await User.findByIdAndUpdate(req.user._id, {
     biography: req.body.biography,
   });
   if (req.body.favorites) {
@@ -186,11 +185,6 @@ router.put("/edit", auth, async (req, res) => {
       favorites: req.body.favorites,
     });
   }
-  //  if (req.body.avatar) {
-  //    avatar = await User.findByIdAndUpdate(req.user._id, {
-  //      avatar: req.body.avatar,
-  //    });
-  //  }
 
   return res.status(200).send({ message: "Updated user" });
 });
