@@ -47,10 +47,12 @@ router.post("/upload", auth, upload.single("photo"), async (req, res) => {
   fs.writeFile(`uploads/${req.user.username}.png`, buffer, () => null);
   // Upload to CDN
   cdn.delete(`avatars/${req.user.username}.png`).catch(() => null);
-  cdn.upload(
-    `uploads/${req.user.username}.png`,
-    `avatars/${req.user.username}.png`
-  ).catch(() => null);
+  cdn
+    .upload(
+      `uploads/${req.user.username}.png`,
+      `avatars/${req.user.username}.png`
+    )
+    .catch(() => null);
   // Update DB entry
   await User.findByIdAndUpdate(req.user._id, {
     avatar: `https://cdn.opensauce.uk/avatars/${req.user.username}.png`,
