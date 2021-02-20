@@ -176,10 +176,9 @@ router.put("/edit", auth, async (req, res) => {
   let biography;
   let favorites;
   let avatar;
-  if (req.body.biography) {
-    if (!req.body.biography.includes("http"))
+
       return res.status(400).send({ error: "No link given" });
-    biography = await User.findByIdAndUpdate(req.user._id, {
+      biography = await User.findByIdAndUpdate(req.user._id, {
       biography: req.body.biography,
     });
   }
@@ -188,23 +187,13 @@ router.put("/edit", auth, async (req, res) => {
       favorites: req.body.favorites,
     });
   }
-  if (req.body.avatar) {
-    avatar = await User.findByIdAndUpdate(req.user._id, {
-      avatar: req.body.avatar,
-    });
-  }
+//  if (req.body.avatar) {
+//    avatar = await User.findByIdAndUpdate(req.user._id, {
+//      avatar: req.body.avatar,
+//    });
+//  }
 
-  return res.send({
-    payload: {
-      user: {
-        id: req.user.id,
-        username: req.user.username,
-        avatar: req.body.avatar,
-        biography: req.body.biography,
-        favorites: req.body.favorites,
-      },
-    },
-  });
+  return res.status(200).send({message: Updated user"})
 });
 
 // Exports the file as a module

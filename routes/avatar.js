@@ -28,7 +28,7 @@ function delete_file(file) {
       }
       util.debug(`Deleted file ${file}`);
     });
-  }, 60000);
+  }, 20000);
 }
 router.post("/upload", auth, upload.single("photo"), async (req, res) => {
   const file = req.file;
